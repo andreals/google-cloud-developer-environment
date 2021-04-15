@@ -48,7 +48,7 @@ sudo apt-get -qq update && sudo apt-get -qq upgrade --yes
 # Install/upgrade packages in the VM
 sudo apt-get install -qq --yes \
     tmux vim nano emacs exuberant-ctags command-not-found bash-completion \
-    git zsh libxml2-dev \
+    git zsh libxml2-dev pkg-config \
     build-essential devscripts \
     curl wget \
     npm npm2deb nodejs \
