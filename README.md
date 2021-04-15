@@ -1,4 +1,4 @@
-# Ambiente Developer Cloud
+# Google Cloud Developer Environment
 
 ## Configurações locais
 ---
@@ -9,6 +9,22 @@
 2. Rode o comando: `sh local-config.sh $VMNAME`, onde `$VMNAME` é o nome da sua VM que será criada
 3. Aguarde todos os passos serem executados, até conectar-se na VM
 4. Depois de conectado, sugiro sair da conexão: `CTRL` + `D` e em seguida executar: `ssh $VMNAME`, onde `$VMNAME` é o nome da sua VM criada
+
+---
+## Configurações do VSCode
+---
+
+#### Passos
+1. Baixe as extensões: `Go` (Microsoft) e `Error Lens` (Alexander)
+2. Abra o `Settings` (Engrenagem no canto inferior esquerdo)
+3. Pesquise por: `go.formatTool` e altere para `gofmt`
+4. Pesquise por: `go.lintOnSave` e altere para `off`
+5. Baixe a extensão `Remote - SSH` da Microsoft
+6. Abrir o Remote SSH que irá aparecer na lateral do VSCode (abaixo do Debug), e acessar a máquina virtual que será listada
+7. Abrir as pastas `src/site` dos projetos para já ficar salvo como favorito no VSCode
+8. Pressione os botões `CTRL` + `SHIFT` + `P`
+9. Digite: `Terminal: Select Default Profile` ou `Terminal: Select Default Shell`
+10. Selecione o `zsh`
 
 ---
 ## Configurações VM
@@ -36,17 +52,9 @@
 9. Por último vai configurar o `zsh`, que basicamente vai solicitar a confirmação da instalação (digite `y` e `ENTER`) e digitar a senha do seu usuário (a mesma do Passo 1)
 
 ---
-## Configurações do VSCode
+# Acesso Externo
 ---
 
 #### Passos
-1. Baixe as extensões: `Go` (Microsoft) e `Error Lens` (Alexander)
-2. Abra o `Settings` (Engrenagem no canto inferior esquerdo)
-3. Pesquise por: `go.formatTool` e altere para `gofmt`
-4. Pesquise por: `go.lintOnSave` e altere para `off`
-5. Baixe a extensão `Remote - SSH` da Microsoft
-6. Abrir o Remote SSH que irá aparecer na lateral do VSCode (abaixo do Debug), e acessar a máquina virtual que será listada
-7. Abrir as pastas `src/site` dos projetos para já ficar salvo como favorito no VSCode
-8. Pressione os botões `CTRL` + `SHIFT` + `P`
-9. Digite: `Terminal: Select Default Profile` ou `Terminal: Select Default Shell`
-10. Selecione o `zsh`
+1. Baixe o `gcloud`, se for Linux: `sudo snap install google-cloud-sdk --classic`
+2. Após o download, rode o comando: `gcloud compute ssh $VMNAME --project=appratico-dev`, onde `$VMNAME` é o nome da VM criada
