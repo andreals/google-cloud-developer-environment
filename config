@@ -1,0 +1,9 @@
+# Match and execute the launch script, so when connecting it will launch VM if it's not running
+Match host myvm exec "/home/myuser/.ssh/launch-gc-vm.sh appratico-dev southamerica-east1-b myvm"
+
+# Use the IP address or DNS name if you have a public entry for the target host
+# Also, you can use the SSH key that `gcloud compute ssh myvm --project=appratico-dev` will generate for
+Host myvm
+	HostName X.X.X.X
+	User myuser
+	IdentityFile /home/myuser/.ssh/google_compute_engine
