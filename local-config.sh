@@ -45,12 +45,12 @@ gcloud compute addresses create ${VM}-ip --project=appratico-dev --region=southa
 
 echo "${GREEN}Obtendo IP Estático criado no GCP...${NC}"
 ip=$(eval "gcloud compute addresses describe ${VM}-ip --project=appratico-dev --region=southamerica-east1 \
-    | grep address: | sed -e \"s/address: //g\"")
+    --format=\"value(address)\"")
 echo "${GREEN}IP obtido: ${ip}${NC}"
 
 echo "${GREEN}Obtendo Access Config Name no GCP...${NC}"
 name=$(eval "gcloud compute instances describe ${VM} --project=appratico-dev --zone=southamerica-east1-b \
-    | grep \"    name:\" | sed -e \"s/    name: //g\"")
+    --format=\"value(networkInterfaces.accessConfigs.name)\" | sed -e \"s/\['\|'\]//g\"")
 echo "${GREEN}Access Config Name obtido: ${name}${NC}"
 
 echo "${GREEN}Deletando Access Config Name...${NC}"
